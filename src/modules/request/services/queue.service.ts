@@ -17,8 +17,8 @@ export class RequestQueueService {
    * Pushes a request object to the queue.
    * @param {RequestObject} requestObject - the request object to push.
    */
-  push(requestObject: RequestObject): void {
-    this.queue.push(requestObject);
+  push(...requestObject: RequestObject[]): void {
+    this.queue.push(...requestObject);
   }
 
   /**

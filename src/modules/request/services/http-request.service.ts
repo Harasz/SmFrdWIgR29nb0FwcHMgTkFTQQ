@@ -38,7 +38,7 @@ export class HttpRequestService {
       const response = await firstValueFrom(request);
       return response.data;
     } catch (error) {
-      Logger.error(error, 'HttpRequestService');
+      Logger.error(error, HttpRequestService.name);
       return undefined;
     }
   }

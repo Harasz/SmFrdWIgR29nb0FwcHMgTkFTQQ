@@ -22,8 +22,8 @@ export class RequestService {
   /**
    * Sends a request to the API and returns a promise with the response data.
    * @param {RequestOptions} options - the request options.
-   * @returns {Promise<T | undefined>} - the response data.
-   * @template T - the type of the response data.
+   * @returns {Promise<ResponseType | undefined>} - the response data.
+   * @template ResponseType - the type of the response data.
    */
   async processRequest<ResponseType>(
     options: RequestOptions,
