@@ -15,7 +15,7 @@ export class AppConfig {
   /**
    * Maximum number of concurrent requests to the API.
    */
-  get apiConcurrentRequest(): number {
+  get apiConcurrentRequests(): number {
     return this.config.get('CONCURRENT_REQUESTS', 5);
   }
 

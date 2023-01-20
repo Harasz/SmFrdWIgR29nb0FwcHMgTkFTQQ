@@ -1,7 +1,15 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import {
+  ImageProvider,
+  IMAGE_PROVIDER_TOKEN,
+} from '../providers/image-provider.interface';
 
 @Injectable()
 export class AppService {
+  constructor(
+    @Inject(IMAGE_PROVIDER_TOKEN) private readonly imageProvider: ImageProvider,
+  ) {}
+
   /**
    * Get pictures URL from a given date range.
    * @param {string} from - the start date.
@@ -9,6 +17,9 @@ export class AppService {
    * @returns {Promise<string[]>} the pictures URL.
    */
   async getPicturesByDateRange(from: string, to: string): Promise<string[]> {
-    return ['picture1', 'picture2', 'picture3'];
+    const fromDate = new Date(from);
+    const toDate = new Date(to);
+
+    return await this.imageProvider.getImages(fromDate, toDate);
   }
 }
